@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Hospy Patient Registration" enabled="true">
+      <stringProp name="TestPlan.comments">This test plan was created by the BlazeMeter converter v.${project.version}. Please contact support@blazemeter.com for further support.</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="User-Agent" elementType="Header">
+            <stringProp name="Header.name">User-Agent</stringProp>
+            <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="BASE_URL_1" elementType="Argument">
+            <stringProp name="Argument.name">BASE_URL_1</stringProp>
+            <stringProp name="Argument.value">hospytest.microproindia.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="loginID" elementType="Argument">
+            <stringProp name="Argument.name">loginID</stringProp>
+            <stringProp name="Argument.value">Admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="password" elementType="Argument">
+            <stringProp name="Argument.name">password</stringProp>
+            <stringProp name="Argument.value">U1B5gu4eZp+pXP+DBSs/Fg==</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
+        <boolProp name="HTTPSampler.image_parser">true</boolProp>
+        <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+        <intProp name="HTTPSampler.concurrentPool">6</intProp>
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.implementation"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <DNSCacheManager guiclass="DNSCachePanel" testclass="DNSCacheManager" testname="DNS Cache Manager">
+        <collectionProp name="DNSCacheManager.servers"/>
+        <collectionProp name="DNSCacheManager.hosts"/>
+        <boolProp name="DNSCacheManager.clearEachIteration">true</boolProp>
+        <boolProp name="DNSCacheManager.isCustomResolver">false</boolProp>
+      </DNSCacheManager>
+      <hashTree/>
+      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager">
+        <collectionProp name="AuthManager.auth_list"/>
+        <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
+      </AuthManager>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager">
+        <boolProp name="clearEachIteration">true</boolProp>
+        <boolProp name="useExpires">false</boolProp>
+        <boolProp name="CacheManager.controlledByThread">false</boolProp>
+      </CacheManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <longProp name="ThreadGroup.duration">0</longProp>
+        <longProp name="ThreadGroup.delay">0</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="LAUNCH">
+          <boolProp name="TransactionController.parent">true</boolProp>
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="hospytest" enabled="true">
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">setup/setup.json</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="hospyTest">
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">AdminService-1.0/admin/ctrl/get_setup_parameters_list_by_ids</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;setd_entity_code_ent&quot;:&quot;001001000000000000&quot;,&quot;setd_param_id_setp&quot;:[&quot;MAX_PASSWORD_LENGTH&quot;,&quot;MIN_PASSWORD_LENGTH&quot;,&quot;PASSWORD_EXPIRY_DAYS&quot;,&quot;PASSWORD_POLICY_DTL&quot;,&quot;PASSWORD_POLICY_YESNO&quot;,&quot;PWDCHANGE_1ST_LOGIN&quot;,&quot;IS_ENTITY_SESSION_BASED&quot;]}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Access-Control-Allow-Methods" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Methods</stringProp>
+                  <stringProp name="Header.value">GET, PUT, PATCH, POST, DELETE, OPTIONS</stringProp>
+                </elementProp>
+                <elementProp name="Access-Control-Allow-Origin" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Origin</stringProp>
+                  <stringProp name="Header.value">*</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="Access-Control-Allow-Credentials" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Credentials</stringProp>
+                  <stringProp name="Header.value">*</stringProp>
+                </elementProp>
+                <elementProp name="Access-Control-Allow-Headers" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Headers</stringProp>
+                  <stringProp name="Header.value">Origin, X-Requested-With, Content-Type, Accept</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="LOGIN">
+          <boolProp name="TransactionController.parent">true</boolProp>
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="login">
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">AdminService-1.0/admin/ctrl/all_login</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;gmd_LoginId&quot;:&quot;${loginID}&quot;,&quot;cclf_aca_year_mst&quot;:&quot;&quot;,&quot;cclf_aca_session_mst&quot;:&quot;&quot;,&quot;gmd_Password&quot;:&quot;${password}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Access-Control-Allow-Methods" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Methods</stringProp>
+                  <stringProp name="Header.value">GET, PUT, PATCH, POST, DELETE, OPTIONS</stringProp>
+                </elementProp>
+                <elementProp name="Access-Control-Allow-Origin" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Origin</stringProp>
+                  <stringProp name="Header.value">*</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="Access-Control-Allow-Credentials" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Credentials</stringProp>
+                  <stringProp name="Header.value">*</stringProp>
+                </elementProp>
+                <elementProp name="Access-Control-Allow-Headers" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Headers</stringProp>
+                  <stringProp name="Header.value">Origin, X-Requested-With, Content-Type, Accept</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">token</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;l_token&quot;:&quot;(.+?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default">NOT_FOUND</stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+              <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TokenValidator">
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">AdminService-1.0/admin/ctrl/token_validate</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Access-Control-Allow-Methods" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Methods</stringProp>
+                  <stringProp name="Header.value">GET, PUT, PATCH, POST, DELETE, OPTIONS</stringProp>
+                </elementProp>
+                <elementProp name="Access-Control-Allow-Origin" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Origin</stringProp>
+                  <stringProp name="Header.value">*</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+                <elementProp name="Access-Control-Allow-Credentials" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Credentials</stringProp>
+                  <stringProp name="Header.value">*</stringProp>
+                </elementProp>
+                <elementProp name="Access-Control-Allow-Headers" elementType="Header">
+                  <stringProp name="Header.name">Access-Control-Allow-Headers</stringProp>
+                  <stringProp name="Header.value">Origin, X-Requested-With, Content-Type, Accept</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">Bearer ${token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SUBMIT REG">
+          <boolProp name="TransactionController.parent">true</boolProp>
+          <boolProp name="TransactionController.includeTimers">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop controller Patient Registration ">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="TestPlan.comments">Loop to run API multiple times </stringProp>
+            <stringProp name="LoopController.loops">2</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="savePatient">
+              <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.path">HospyCommonService-1.0/hospycommonservice/ctrl/save_patient_mst_by_function</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+  &quot;l_Hsys_Patient_Mst_Model&quot;: {&#xd;
+    &quot;hptm_entity_code_ent&quot;: &quot;001001000000000000&quot;,&#xd;
+    &quot;hptm_first_name&quot;: &quot;${firstName}&quot;,&#xd;
+    &quot;hptm_middle_name&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_last_name&quot;: &quot;${lastName}&quot;,&#xd;
+    &quot;hptm_password&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_alias_code&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_nickname&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_promotional_dnd_voice_msg&quot;: &quot;NO&quot;,&#xd;
+    &quot;hptm_statecode&quot;: &quot;MH&quot;,&#xd;
+    &quot;hptm_nationality_cntr_id&quot;: &quot;IN&quot;,&#xd;
+    &quot;hptm_pin&quot;: &quot;454551&quot;,&#xd;
+    &quot;hptm_visa_type_cmst&quot;: &quot;CMST000000000372&quot;,&#xd;
+    &quot;hptm_language_id_cmst&quot;: &quot;CMST000000000274&quot;,&#xd;
+    &quot;hptm_patient_occupation&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_age_month&quot;: 0,&#xd;
+    &quot;hptm_remarks&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_gender_cmst&quot;: &quot;${genderId}&quot;,&#xd;
+    &quot;hptm_crm_calling_remark&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_marital_status_cmst&quot;: &quot;CMST000000000278&quot;,&#xd;
+    &quot;hptm_patient_status_cmst&quot;: &quot;CMST000000000373&quot;,&#xd;
+    &quot;hptm_mrd_no&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_religion_cmst&quot;: &quot;${religionId}&quot;,&#xd;
+    &quot;hptm_wf_doctype_dtyp&quot;: &quot;DT0120&quot;,&#xd;
+    &quot;hptm_merged_to_patient_id_hptm&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_alert_cmst&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_family_doctor&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_loginid&quot;: &quot;${loginId}&quot;,&#xd;
+    &quot;hptm_address&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_age_year&quot;: 0,&#xd;
+    &quot;hptm_patient_type&quot;: &quot;G&quot;,&#xd;
+    &quot;hptm_is_mlc_history_of_patient&quot;: &quot;NO&quot;,&#xd;
+    &quot;hptm_source_type_cmst&quot;: &quot;CMST000000000379&quot;,&#xd;
+    &quot;hptm_identification&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_data_sharing_consent&quot;: &quot;YES&quot;,&#xd;
+    &quot;hptm_email_id&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_credit_limit&quot;: 0,&#xd;
+    &quot;hptm_age_days&quot;: 0,&#xd;
+    &quot;hptm_date_of_birth&quot;: &quot;${randomDOB}&quot;,&#xd;
+    &quot;hptm_calculated_dob&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_patient_id&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_marriage_anniversary_date&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_date_deceased&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_deceased_reason&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_blood_grp_cmst&quot;: &quot;CMST000000000288&quot;,&#xd;
+    &quot;hptm_not_know_allergy&quot;: &quot;NO&quot;,&#xd;
+    &quot;hptm_default_credit_days&quot;: 0,&#xd;
+    &quot;hptm_openmrs_patient_uuid&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_merged_from_patient_id_hptm&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_report_tag3&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_report_tag2&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_report_tag1&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_report_tag4&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_report_tag5&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_promotional_dnd_text_msg&quot;: &quot;NO&quot;,&#xd;
+    &quot;hptm_mobile_no_validated&quot;: &quot;NO&quot;,&#xd;
+    &quot;hptm_alternate_mobile_no_validated&quot;: &quot;NO&quot;,&#xd;
+    &quot;hptm_email_validated&quot;: &quot;NO&quot;,&#xd;
+    &quot;hptm_patient_registration_type&quot;: &quot;P&quot;,&#xd;
+    &quot;hptm_city&quot;: &quot;AMRAVATI&quot;,&#xd;
+    &quot;hptm_country&quot;: &quot;IN&quot;,&#xd;
+    &quot;hptm_mobile_no&quot;: &quot;${mobileNo}&quot;,&#xd;
+    &quot;hptm_alternate_mobile_no&quot;: &quot;&quot;,&#xd;
+    &quot;hptm_isdraft&quot;: &quot;NO&quot;,&#xd;
+    &quot;hptm_isworkflowapproved&quot;: &quot;YES&quot;,&#xd;
+    &quot;hptm_wf_tag1_code&quot;: &quot;99&quot;,&#xd;
+    &quot;hptm_wf_tag2_code&quot;: &quot;99&quot;,&#xd;
+    &quot;l_hptm_date_of_birth&quot;: &quot;&quot;,&#xd;
+    &quot;l_hptm_marriage_anniversary_date&quot;: &quot;&quot;,&#xd;
+    &quot;l_hptm_date_deceased&quot;: &quot;&quot;&#xd;
+  },&#xd;
+  &quot;l_Hsys_Patient_Kin_Dtl_List&quot;: [&#xd;
+    {&#xd;
+      &quot;hpkn_entity_code_ent&quot;: &quot;001001000000000000&quot;,&#xd;
+      &quot;hpkn_is_emergency_contact&quot;: &quot;YES&quot;,&#xd;
+      &quot;hpkn_statecode&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_pin&quot;: &quot;442112&quot;,&#xd;
+      &quot;hpkn_identification_doc_type_sipm&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_country&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_kin_professional_detail&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_address&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_kin_date_of_birth&quot;: &quot;${randomDOB}&quot;,&#xd;
+      &quot;hpkn_city&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_kin_patient_id_hptm&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_patient_relation_cmst&quot;: &quot;${relationshipId}&quot;,&#xd;
+      &quot;hpkn_identification_doc_no&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_kin_email_id&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_kin_last_name&quot;: &quot;${lastName}&quot;,&#xd;
+      &quot;hpkn_kin_middle_name&quot;: &quot;&quot;,&#xd;
+      &quot;hpkn_kin_contact_no&quot;: &quot;${mobileNo}&quot;,&#xd;
+      &quot;hpkn_kin_first_name&quot;: &quot;${firstName}&quot;,&#xd;
+      &quot;l_hpkn_kin_full_name&quot;: &quot;&quot;,&#xd;
+      &quot;l_hpkn_patient_relation_cmst&quot;: &quot;&quot;,&#xd;
+      &quot;l_grid_edit_show&quot;: &quot;YES&quot;,&#xd;
+      &quot;l_grid_delete_show&quot;: &quot;YES&quot;,&#xd;
+      &quot;l_grid_workflow_show&quot;: &quot;NO&quot;,&#xd;
+      &quot;l_row_index&quot;: 0,&#xd;
+      &quot;l_hpkn_kin_date_of_birth&quot;: &quot;&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;l_Hsys_Patient_Identity_Document_Dtl_List&quot;: [&#xd;
+    {&#xd;
+      &quot;hpdd_entity_code_ent&quot;: &quot;001001000000000000&quot;,&#xd;
+      &quot;hpdd_document_proof_id_sipm&quot;: &quot;SIPM9fcad2a5c3d246869441e92c25d9774d&quot;,&#xd;
+      &quot;hpdd_document_number&quot;: &quot;${loginId}&quot;,&#xd;
+      &quot;hpdd_document_file_name&quot;: &quot;avcado.jpg&quot;,&#xd;
+      &quot;l_hpdd_document_proof_id_sipm&quot;: &quot;Aadhar Card&quot;,&#xd;
+      &quot;l_hpdd_document_valid_upto_date&quot;: &quot;31/Dec/2040&quot;,&#xd;
+      &quot;hpdd_document_valid_upto_date&quot;: &quot;2040-12-31&quot;,&#xd;
+      &quot;l_grid_edit_show&quot;: &quot;YES&quot;,&#xd;
+      &quot;l_grid_delete_show&quot;: &quot;YES&quot;,&#xd;
+      &quot;l_grid_workflow_show&quot;: &quot;NO&quot;,&#xd;
+      &quot;l_row_index&quot;: 0,&#xd;
+      &quot;hpdd_isdraft&quot;: &quot;NO&quot;,&#xd;
+      &quot;hpdd_isworkflowapproved&quot;: &quot;YES&quot;,&#xd;
+      &quot;hpdd_wf_tag1_code&quot;: &quot;99&quot;,&#xd;
+      &quot;hpdd_wf_tag2_code&quot;: &quot;99&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">
+import com.github.javafaker.Faker
+import java.text.Normalizer
+
+def faker = new Faker()
+
+def sanitizeName = { name -&gt;
+    def clean = Normalizer.normalize(name, Normalizer.Form.NFD)   // remove accents
+    clean = clean.replaceAll(&quot;[^a-zA-Z]&quot;, &quot;&quot;)                     // keep only alphabets
+    return clean
+}
+
+
+// Generate random patient details
+vars.put(&quot;firstName&quot;, faker.name().firstName())
+vars.put(&quot;lastName&quot;, faker.name().lastName())
+vars.put(&quot;loginId&quot;, faker.number().digits(10))
+vars.put(&quot;mobileNo&quot;, &quot;+91&quot; + faker.number().digits(10))</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer ${token}</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Credentials" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Credentials</stringProp>
+                    <stringProp name="Header.value">*</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Methods" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Methods</stringProp>
+                    <stringProp name="Header.value">GET, PUT, PATCH, POST, DELETE, OPTIONS</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Origin" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Origin</stringProp>
+                    <stringProp name="Header.value">*</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                  </elementProp>
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Headers" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Headers</stringProp>
+                    <stringProp name="Header.value">Origin, X-Requested-With, Content-Type, Accept</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">// Generate random days between 1 and 36500 (≈ 100 years)
+int randomDays = 1 + new Random().nextInt(36500)
+
+// Subtract from today
+def dob = java.time.LocalDate.now().minusDays(randomDays)
+
+// Save into JMeter variable
+vars.put(&quot;randomDOB&quot;, dob.toString())   // yyyy-MM-dd
+
+
+
+//*****************************To sent random gender ids*******************
+
+
+def ids = [&quot;CMST000000000237&quot;,&quot;CMST000000000238&quot;]
+def randomId = ids[new Random().nextInt(ids.size())]
+vars.put(&quot;genderId&quot;, randomId)
+
+//*****************************To sent random religion ids*******************
+
+def relids = [&quot;CMST000000000292&quot;,&quot;CMST000000000294&quot;, &quot;CMST000000000295&quot;, &quot;CMST000000000296&quot;,&quot;CMST000000000298&quot;,&quot;CMST000000000299&quot;]
+def randomId1 = relids[new Random().nextInt(relids.size())]
+
+vars.put(&quot;religionId&quot;,randomId1)
+
+
+
+
+//**************to Sent relationship with kin**********
+
+def relationids = [&quot;CMST000000000322&quot;,&quot;CMST000000000311&quot;,&quot;CMST000000000304&quot;,&quot;CMST000000000303&quot;,&quot;CMST000000000388&quot;]
+def randomId2 = relids[new Random().nextInt(relationids.size())]
+
+vars.put(&quot;relationshipId&quot;,randomId2)</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+              <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="false">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+                <stringProp name="RandomTimer.range">10000</stringProp>
+              </UniformRandomTimer>
+              <hashTree/>
+              <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+                <intProp name="calcMode">0</intProp>
+                <doubleProp>
+                  <name>throughput</name>
+                  <value>25.0</value>
+                  <savedValue>0.0</savedValue>
+                </doubleProp>
+              </ConstantThroughputTimer>
+              <hashTree/>
+              <JSR223Timer guiclass="TestBeanGUI" testclass="JSR223Timer" testname="JSR223 Timer">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">long wait = org.apache.commons.lang3.RandomUtils.nextInt(5000, 25000) // between 1s–5s
+Thread.sleep(wait)</stringProp>
+              </JSR223Timer>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">E:\Gaurav\jmeter\apache-jmeter-5.6.3\bin\Hospy\HOSPY.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
